@@ -112,13 +112,12 @@ const WineProperties = () => {
         </span>
       </div>
       <Policies />
-      
     </div>
   );
 };
 export const ProductInfo = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div >
       <h1 style={{ color: red[8], marginBottom: 0 }}>
         Rượu Whisky Glengoyne 10 Year Old
       </h1>
