@@ -7,13 +7,20 @@ import { red } from "@ant-design/colors";
 import DOMPurify from "dompurify";
 import { productDescriptionHtml } from "../data/productDescriptinHtml";
 import { useState } from "react";
+import { FAQ } from "../componets/productDetail/FAQ";
 const Decription = () => {
   const clean = DOMPurify.sanitize(productDescriptionHtml);
   const [showMore, setshowMore] = useState(false);
   return (
     <div style={{ marginTop: "40px", padding: "0 150px" }}>
       <Divider style={{ borderColor: red[8] }} variant="dashed">
-        <h1 style={{ color: red[8], textAlign: "center", fontWeight: 400 }}>
+        <h1
+          style={{
+            color: red[8],
+            textAlign: "center",
+            fontWeight: 400,
+          }}
+        >
           THÔNG TIN SẢN PHẨM
         </h1>
       </Divider>
@@ -88,6 +95,7 @@ export const ProductDetail = () => {
       />
       <Detail />
       <Decription />
+      <FAQ />
     </div>
   );
 };
