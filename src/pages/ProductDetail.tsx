@@ -8,6 +8,7 @@ import DOMPurify from "dompurify";
 import { productDescriptionHtml } from "../data/productDescriptinHtml";
 import { useState } from "react";
 import { FAQ } from "../componets/productDetail/FAQ";
+import { SimilarProduct } from "../componets/productDetail/SimilarProduct";
 const Decription = () => {
   const clean = DOMPurify.sanitize(productDescriptionHtml);
   const [showMore, setshowMore] = useState(false);
@@ -84,18 +85,18 @@ const Detail = () => {
   );
 };
 export const ProductDetail = () => {
+  const breadcrumbData = [
+    { title: "Trang chủ" },
+    { title: "Rượu mạnh" },
+    { title: "Rượu Whisky Single Malt" },
+  ];
   return (
     <div style={{ backgroundColor: "white", padding: "20px" }}>
-      <Breadcrumb
-        items={[
-          { title: "Trang chủ" },
-          { title: "Rượu mạnh" },
-          { title: "Rượu Whisky Single Malt" },
-        ]}
-      />
+      <Breadcrumb items={breadcrumbData} />
       <Detail />
       <Decription />
       <FAQ />
+      <SimilarProduct />
     </div>
   );
 };
