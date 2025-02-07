@@ -31,7 +31,7 @@ const LogoBar = () => {
       <Space style={{ color: "white" }} size="large">
         <HeartFilled style={{ fontSize: "25px" }} />
         <ShoppingCartOutlined style={{ fontSize: "25px" }} />
-        <Link style={{ color: "white" }} to="/">
+        <Link style={{ color: "white" }} to="/login">
           ĐĂNG NHẬP
         </Link>
       </Space>
