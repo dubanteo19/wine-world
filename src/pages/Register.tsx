@@ -1,9 +1,14 @@
 import { Button, Col, Form, Image, Input, Row } from "antd";
-interface LoginForm {
+interface RegisterForm {
   email: string;
+  fullName: string;
   password: string;
+  confirmPassword: string;
 }
-export const Login = () => {
+export const Register = () => {
+  const handleRegister = async (values: RegisterForm) => {
+    console.log(values);
+  };
   return (
     <Row style={{ padding: "80px 220px" }}>
       <Col span={12}>
@@ -14,8 +19,8 @@ export const Login = () => {
         />
       </Col>
       <Col span={12}>
-        <Form<LoginForm>
-          name="login"
+        <Form<RegisterForm>
+          name="register"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           style={{
@@ -27,9 +32,10 @@ export const Login = () => {
           }}
           initialValues={{ remember: true }}
           autoComplete="off"
+          onFinish={handleRegister}
         >
-          <h2 style={{ textAlign: "center" }}>Đăng nhập</h2>
-          <Form.Item<LoginForm>
+          <h2 style={{ textAlign: "center" }}>Đăng ký</h2>
+          <Form.Item
             label="Email"
             name="email"
             rules={[
@@ -42,7 +48,10 @@ export const Login = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item<LoginForm>
+          <Form.Item label="Họ và tên" name="fullName">
+            <Input />
+          </Form.Item>
+          <Form.Item
             label="Mật khẩu"
             name="password"
             rules={[
@@ -54,13 +63,25 @@ export const Login = () => {
           >
             <Input.Password />
           </Form.Item>
+          <Form.Item
+            label="Xác nhận mật khẩu"
+            name="confirmPassword"
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng nhập mật khẩu",
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
           <Form.Item label={null}>
             <Button type="primary" htmlType="submit">
-              Đăng nhập
+              Đăng ký
             </Button>
           </Form.Item>
           <p style={{ textAlign: "center" }}>
-            Chưa có tài khoản? <a href="/register">Đăng ký</a>
+            Đã có tài khoản? <a href="/login">Đăng nhập</a>
           </p>
         </Form>
       </Col>
