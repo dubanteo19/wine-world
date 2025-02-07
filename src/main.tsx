@@ -6,6 +6,8 @@ import { ConfigProvider } from "antd";
 import { red } from "@ant-design/colors";
 import { Home } from "./componets/home/Home";
 import { ProductDetail } from "./pages/ProductDetail";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ConfigProvider
@@ -19,10 +21,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
-    ,
   </ConfigProvider>,
 );
