@@ -120,7 +120,7 @@ export const ProductInfo = () => {
   return (
     <div>
       <h1 style={{ color: red[8], marginBottom: 0 }}>
-        Rượu Whisky Glengoyne 10 Year Old
+        Rượu Whisky Glengoyne 10 Years Old
       </h1>
       <RatingOverall />
       <p>

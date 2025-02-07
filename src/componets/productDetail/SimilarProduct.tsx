@@ -1,6 +1,11 @@
-import { Button, Col, Divider, Flex, Image, Row } from "antd";
+import { Button, Col, Divider, Flex, Image, Rate, Row, Space } from "antd";
 import { similarProductData } from "../../data/similarProductData";
-import { gray, red } from "@ant-design/colors";
+import grapeVarietyIcon from "../../assets/icons/pa_giong-nho.svg";
+import wineTypeIcon from "../../assets/icons/pa_loai-vang.svg";
+import producerIcon from "../../assets/icons/pa_nha-san-xuat.svg";
+import originIcon from "../../assets/icons/pa_quoc-gia.svg";
+import abvIcon from "../../assets/icons/pa_nong-do.svg";
+import { red } from "@ant-design/colors";
 interface Wine {
   id: number;
   name: string;
@@ -26,58 +31,39 @@ const ProductCard: React.FC<Wine> = (props) => {
     origin,
     wineType,
   } = props;
+  const productProps = [
+    { icon: grapeVarietyIcon, value: grapeVariety },
+    { icon: wineTypeIcon, value: wineType },
+    { icon: producerIcon, value: producer },
+    { icon: originIcon, value: origin },
+    { icon: abvIcon, value: abv + " % ABV*" },
+  ];
   return (
     <div>
       <Row>
         <Col span={14}>
-          <Image height={200} src={image} preview={false} />
+          <div>
+            <Image height={200} src={image} preview={false} />
+          </div>
         </Col>
         <Col span={10}>
           <Flex gap={10} vertical={true}>
-            <div>
-              <Image
-                src="https://winecellar.vn/wp-content/themes/winecellarvn/assets/icons/svg/pa_giong-nho.svg"
-                preview={false}
-              />
-              <span>{grapeVariety}</span>
-            </div>
-            <div>
-              <Image
-                src="https://winecellar.vn/wp-content/themes/winecellarvn/assets/icons/svg/pa_loai-vang.svg"
-                preview={false}
-              />
-              <span>{wineType}</span>
-            </div>
-            <div>
-              <Image
-                src="https://winecellar.vn/wp-content/themes/winecellarvn/assets/icons/svg/pa_nha-san-xuat.svg"
-                preview={false}
-              />
-              <span>{producer}</span>
-            </div>
-            <div>
-              <Image
-                width={25}
-                src="https://winecellar.vn/wp-content/themes/winecellarvn/assets/icons/svg/pa_quoc-gia.svg"
-                preview={false}
-              />
-              <span>{origin}</span>
-            </div>
-            <div>
-              <Image
-                width={25}
-                src="https://winecellar.vn/wp-content/themes/winecellarvn/assets/icons/svg/pa_nong-do.svg"
-                preview={false}
-              />
-              <span>{abv}</span>
-            </div>
+            {productProps.map((item) => (
+              <Space>
+                <Image width={20} src={item.icon} preview={false} />
+                <span>{item.value}</span>
+              </Space>
+            ))}
           </Flex>
         </Col>
       </Row>
-      <h2 style={{ color: red[8] }}>{name}</h2>
+      <div>
+        <Rate value={rating} />
+        <h2 style={{ color: red[8], height: "60px" }}>{name}</h2>
+      </div>
       <Flex justify="space-between">
         <strong>
-          <span style={{ color: red[8] }}>
+          <span style={{ color: red[8], fontSize: "20px" }}>
             {new Intl.NumberFormat("vi-VN", {
               style: "currency",
               currency: "VND",

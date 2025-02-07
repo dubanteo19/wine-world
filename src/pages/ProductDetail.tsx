@@ -9,6 +9,7 @@ import { productDescriptionHtml } from "../data/productDescriptinHtml";
 import { useState } from "react";
 import { FAQ } from "../componets/productDetail/FAQ";
 import { SimilarProduct } from "../componets/productDetail/SimilarProduct";
+import { VisitedProduct } from "../componets/productDetail/VisitedProduct";
 const Decription = () => {
   const clean = DOMPurify.sanitize(productDescriptionHtml);
   const [showMore, setshowMore] = useState(false);
@@ -97,6 +98,7 @@ export const ProductDetail = () => {
       <Decription />
       <FAQ />
       <SimilarProduct />
+      <VisitedProduct />
     </div>
   );
 };
