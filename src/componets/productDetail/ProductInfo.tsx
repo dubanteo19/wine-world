@@ -1,6 +1,11 @@
 import { red } from "@ant-design/colors";
 import { Col, Divider, Flex, Rate, Row } from "antd";
 const Policies = () => {
+  const policiesData = [
+    "Giá sản phẩm đã bao gồm VAT",
+    "Phí giao hàng tùy theo từng khu vực.",
+    "Đơn hàng từ 1.000.000 vnđ miễn phí giao hàng.",
+  ];
   return (
     <div
       style={{
@@ -12,15 +17,11 @@ const Policies = () => {
       }}
     >
       <ul>
-        <li>
-          <span>Giá sản phẩm đã bao gồm VAT</span>
-        </li>
-        <li>
-          <span>Phí giao hàng tùy theo từng khu vực.</span>
-        </li>
-        <li>
-          <span>Đơn hàng từ 1.000.000 vnđ miễn phí giao hàng.</span>
-        </li>
+        {policiesData.map((item) => (
+          <li>
+            <span>{item}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -112,15 +113,14 @@ const WineProperties = () => {
         </span>
       </div>
       <Policies />
-      
     </div>
   );
 };
 export const ProductInfo = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <h1 style={{ color: red[8], marginBottom: 0 }}>
-        Rượu Whisky Glengoyne 10 Year Old
+        Rượu Whisky Glengoyne 10 Years Old
       </h1>
       <RatingOverall />
       <p>

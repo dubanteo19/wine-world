@@ -8,6 +8,7 @@ export const BrandIntroduction = () => {
         padding: "30px 150px",
         textAlign: "center",
         borderRadius: "15px",
+        color :"white"
       }}
     >
       <h1
